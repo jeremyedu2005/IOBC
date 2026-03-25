@@ -1,5 +1,5 @@
 <?php
-/*
+
 if(defined('CHARGE_AUTOLOAD'))
 {
     set_autoload();
@@ -13,7 +13,7 @@ function set_autoload()
 {
     function my_autoloader ($classname)
     {
-        $filename= './'.$classname.'.class.php';
+        $filename = './class/' . $classname . '.class.php'; // ← ajouter class/
         if (file_exists($filename))
         {
             include_once($filename);
@@ -25,7 +25,7 @@ function set_autoload()
     }
     spl_autoload_register('my_autoloader');
 }
-?> */
+?> 
 
 
 
