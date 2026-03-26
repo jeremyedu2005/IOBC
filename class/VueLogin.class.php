@@ -6,8 +6,8 @@ class VueLogin
     public function __construct()
     {
         $dsn  = "mysql:host=mysql-digbeu.alwaysdata.net;dbname=digbeu_iobc;charset=utf8mb4";
-        $user = "digbeu_jeremy";
-        $pass = "toto123&*"; // ← remplace par ton vrai mot de passe
+        $user = "digbeu_othmane";
+        $pass = "Othmane2005."; // ← remplace par ton vrai mot de passe
  
         try {
             $this->cnxDB = new PDO($dsn, $user, $pass);
@@ -48,6 +48,18 @@ class VueLogin
             </form>
             <p>Pas de compte ? <a href="index.php?inscription">Inscrivez-vous ici</a></p>
         </div>
+        <hr>
+<p>Ou</p>
+
+<a href="google-login.php" style="
+display:inline-block;
+padding:10px;
+background:#fff;
+border:1px solid #ccc;
+text-decoration:none;
+">
+    Continuer avec Google
+</a>
         ';
     }
  

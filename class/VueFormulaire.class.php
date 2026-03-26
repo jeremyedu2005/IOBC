@@ -43,6 +43,18 @@ class VueFormulaire
  
             <input type="submit" value="S\'inscrire" name="ok">
         </form>
+          <hr>
+<p>Ou</p>
+
+<a href="google-login.php" style="
+display:inline-block;
+padding:10px;
+background:#fff;
+border:1px solid #ccc;
+text-decoration:none;
+">
+    Continuer avec Google
+</a>
         ';
     }
 }
