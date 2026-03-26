@@ -31,7 +31,10 @@ if (isset($_GET) && (!empty($_GET))) {
         
     }
 } else {
-    echo '<a href="index.php?inscription">S\'inscrire</a>';
+    // Par défaut → affiche le formulaire d'inscription ou de login
+    $login = new VueLogin();
+    echo $login;
 }
+
 ?>
 

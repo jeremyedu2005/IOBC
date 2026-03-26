@@ -2,7 +2,7 @@
 class VuePDOTEST_traitement
 {
     const DB_HOST = 'digbeu_iobc';                   // Nom de la base de données
-    const HOST    = 'mysql-digbeu.alwaysdata.net';                    // Hôte AlwaysData
+    const HOST    = 'mysql-digbeu.alwaysdata.net';    // Hôte AlwaysData
     const USER    = 'digbeu_jeremy';                 // Nom d'utilisateur
     const PASS    = 'toto123&*';                     // Mot de passe AlwaysData
     const DSN     = "mysql:host=".self::HOST.";dbname=".self::DB_HOST.";charset=utf8mb4";
