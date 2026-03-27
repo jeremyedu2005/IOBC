@@ -7,8 +7,8 @@ class VueMotDePasseOublie
     {
         // J'utilise tes identifiants AlwaysData présents dans VueLogin
         $dsn  = "mysql:host=mysql-digbeu.alwaysdata.net;dbname=digbeu_iobc;charset=utf8mb4";
-        $user = "digbeu";
-        $pass = "2030DLACOREM_npri3"; // Pense à utiliser des variables d'environnement à l'avenir !
+        $user = "";// nom utilisateur
+        $pass = ""; // Pense à utiliser des variables d'environnement à l'avenir !
 
         try {
             $this->cnxDB = new PDO($dsn, $user, $pass);

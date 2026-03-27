@@ -6,8 +6,8 @@ class VueLogin
     public function __construct()
     {
         $dsn  = "mysql:host=mysql-digbeu.alwaysdata.net;dbname=digbeu_iobc;charset=utf8mb4";
-        $user = "digbeu_othmane";
-        $pass = "Othmane2005."; // ← remplace par ton vrai mot de passe
+        $user = "";//utilse ton mot de passe
+        $pass = ""; // ← remplace par ton vrai mot de passe
  
         try {
             $this->cnxDB = new PDO($dsn, $user, $pass);
