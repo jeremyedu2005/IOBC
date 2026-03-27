@@ -24,6 +24,22 @@ if (isset($_GET) && (!empty($_GET))) {
                 $login= new VueLogin();
                 echo $login;
                 break;
+                
+                
+            case "forgot":
+                $forgot = new VueMotDePasseOublie();
+                echo $forgot;
+                break;
+
+            case "reset":
+                // On s'assure que le token est présent dans l'URL
+                if (isset($_GET['token']) && !empty($_GET['token'])) {
+                    $reset = new VueReinitialiserMdp($_GET['token']);
+                    echo $reset;
+                } else {
+                    echo "<p>Jeton manquant.</p>";
+                }
+                break;
             }
             
             
@@ -31,10 +47,7 @@ if (isset($_GET) && (!empty($_GET))) {
         
     }
 } else {
-    // Par défaut → affiche le formulaire d'inscription ou de login
-    $login = new VueLogin();
-    echo $login;
+    echo '<a href="index.php?inscription">S\'inscrire</a>';
 }
-
 ?>
 
