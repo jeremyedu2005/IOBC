@@ -30,6 +30,12 @@ if (isset($_GET) && (!empty($_GET))) {
                 $forgot = new VueMotDePasseOublie();
                 echo $forgot;
                 break;
+                
+            case "carte":
+                $carte = new VueCarteInteractive();
+                echo $carte;
+                break;    
+            
 
             case "reset":
                 // On s'assure que le token est présent dans l'URL
@@ -46,8 +52,10 @@ if (isset($_GET) && (!empty($_GET))) {
             
         
     }
-} else {
-    echo '<a href="index.php?inscription">S\'inscrire</a>';
+}else {
+    // Par défaut → login
+    $login = new VueLogin();
+    echo $login;
 }
 ?>
 
