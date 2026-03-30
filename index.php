@@ -6,53 +6,63 @@ define("CHARGE_AUTOLOAD", true);
 
 require_once("inc/poo.inc.php");
 
-if (isset($_GET) && (!empty($_GET))) {
+// 🔹 Traitement du formulaire de login en POST (prioritaire)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+    $login = new VueLogin();
+    echo $login;
+    exit;
+}
+
+// 🔹 Gestion des actions GET
+if (!empty($_GET)) {
     foreach ($_GET as $cle => $value) {
         switch ($cle) {
-
             case "inscription":
-                $formulaire = new VueFormulaire();
-                echo $formulaire;
+                echo new VueFormulaire();
                 break;
-
+                
             case "PDOTEST_traitement":
                 $traitement = new VuePDOTEST_traitement();
                 $traitement->ajouterUtilisateur();
                 break;
-
-            case "login":
-                $login= new VueLogin();
-                echo $login;
-                break;
                 
+            case "login":
+                echo new VueLogin();
+                break;
                 
             case "forgot":
-                $forgot = new VueMotDePasseOublie();
-                echo $forgot;
+                echo new VueMotDePasseOublie();
                 break;
-
+                
             case "reset":
-                // On s'assure que le token est présent dans l'URL
-                if (isset($_GET['token']) && !empty($_GET['token'])) {
-                    $reset = new VueReinitialiserMdp($_GET['token']);
-                    echo $reset;
+                if (!empty($_GET['token'])) {
+                    echo new VueReinitialiserMdp($_GET['token']);
                 } else {
                     echo "<p>Jeton manquant.</p>";
                 }
                 break;
-
+                
+            case "accueil":
+                // Page d'accueil : déconnecté OU connecté
+                if (isset($_SESSION['user_id'])) {
+                    echo new VueAccueilConnecte($_SESSION['user_id']);
+                } else {
+                    echo new VueAcceuilDeconnecte();
+                }
+                break;
+                
             case "carte":
                 $carte = new VueCarteInteractive();
                 echo $carte;
-                break;    
-            }
-            
-            
-            
-        
+                break;
+                
+            default:
+                // Paramètre inconnu → on retourne à l'accueil déconnecté
+                echo new VueAcceuilDeconnecte();
+        }
     }
 } else {
-    echo '<a href="index.php?inscription">S\'inscrire</a>';
+    // 🔹🔹🔹 PAGE PAR DÉFAUT : VueAcceuilDeconnecte 🔹🔹🔹
+    echo new VueAcceuilDeconnecte();
 }
 ?>
-
