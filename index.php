@@ -40,6 +40,11 @@ if (isset($_GET) && (!empty($_GET))) {
                     echo "<p>Jeton manquant.</p>";
                 }
                 break;
+
+            case "carte":
+                $carte = new VueCarteInteractive();
+                echo $carte;
+                break;    
             }
             
             
