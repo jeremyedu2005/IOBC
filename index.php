@@ -24,7 +24,11 @@ if (isset($_GET) && (!empty($_GET))) {
                 $login= new VueLogin();
                 echo $login;
                 break;
-                
+            
+            case "messages":
+                $messages = new VueMessages();
+                echo $messages;
+                break;
                 
             case "forgot":
                 $forgot = new VueMotDePasseOublie();
