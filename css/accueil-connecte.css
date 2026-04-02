@@ -1,0 +1,217 @@
+/* css/accueil-connecte.css */
+:root {
+    --cream: #FFE8CC;
+    --orange: #FF7318;
+    --pink: #D81B60;
+    --blue: #4A90E2;
+    --green: #2ECC71;
+    --brown: #634444;
+    --white: #FFFFFF;
+    --gray-light: #F5F5F5;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+/* ✅ SUPPRESSION DU SOULIGNEMENT BLEU PARTOUT */
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--cream);
+    color: var(--brown);
+}
+
+/* --- HEADER EN POSITION STICKY --- */
+.header {
+    background: var(--white);
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+}
+
+.logo { 
+    font-size: 28px; 
+    font-weight: 800; 
+    color: var(--brown); 
+}
+
+.search-bar { 
+    flex: 1; 
+    max-width: 500px; 
+    margin: 0 40px; 
+    position: relative; 
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 45px 12px 20px;
+    border: 2px solid var(--cream);
+    border-radius: 25px;
+    background: var(--gray-light);
+    outline: none;
+}
+
+.search-bar i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--orange);
+}
+
+/* Actions Utilisateur */
+.header-actions { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+}
+
+.karma-badge {
+    background: var(--orange);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* --- MISE EN PAGE --- */
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.sidebar-left { 
+    width: 260px; 
+    padding-right: 30px; 
+    position: sticky; 
+    top: 90px; 
+    height: calc(100vh - 90px); 
+    overflow-y: auto; 
+}
+
+.main-content { 
+    flex: 1; 
+    max-width: 800px; 
+}
+
+.sidebar-right { 
+    width: 320px; 
+    padding-left: 30px; 
+    position: sticky; 
+    top: 90px; 
+    height: calc(100vh - 90px); 
+    overflow-y: auto; 
+}
+
+/* Menu de Navigation */
+.nav-menu { list-style: none; }
+.nav-menu li { margin-bottom: 8px; }
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    background: var(--orange);
+    color: white;
+}
+
+/* --- ÉLÉMENTS DE CONTENU --- */
+.welcome-banner {
+    background: linear-gradient(135deg, var(--orange), var(--pink));
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 30px 0 20px;
+}
+
+/* Grille de Posts */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.post-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.post-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--cream), #FFD4A3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Sidebar Droite */
+.community-box {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.btn-join {
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Badge de génération (le truc en bleu) */
+.badge-gen {
+    background-color: var(--blue);
+    color: white;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+}

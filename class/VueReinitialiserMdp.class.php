@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/../config.php');
+
 class VueReinitialiserMdp
 {
     private $cnxDB;
@@ -7,10 +9,9 @@ class VueReinitialiserMdp
     public function __construct($token)
     {
         $this->token = $token;
-        // Tes identifiants actuels
-        $dsn  = "mysql:host=mysql-digbeu.alwaysdata.net;dbname=digbeu_iobc;charset=utf8mb4";
-        $user = "digbeu_jeremy";
-        $pass = "toto123&*";
+        $dsn  = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
+        $user = DB_USER;
+        $pass = DB_PASS;
 
         try {
             $this->cnxDB = new PDO($dsn, $user, $pass);

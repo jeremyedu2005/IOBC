@@ -1,18 +1,16 @@
 <?php
+require_once(__DIR__ . '/../config.php');
+
 class VuePDOTEST_traitement
 {
-    const DB_HOST = 'digbeu_iobc';                   // Nom de la base de données
-    const HOST    = 'mysql-digbeu.alwaysdata.net';   // Hôte AlwaysData
-    const USER    = 'digbeu_jeremy';                 // Nom d'utilisateur
-    const PASS    = 'toto123&*';                   // Mot de passe AlwaysData
-    const DSN     = "mysql:host=".self::HOST.";dbname=".self::DB_HOST.";charset=utf8mb4";
+    const DSN = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
  
     protected $cnxDB;
  
     public function __construct()
     {
         try {
-            $this->cnxDB = new PDO(self::DSN, self::USER, self::PASS);
+            $this->cnxDB = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4", DB_USER, DB_PASS);
             $this->cnxDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             die("Erreur de connexion : " . $e->getMessage());

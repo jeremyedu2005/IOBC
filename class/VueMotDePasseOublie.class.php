@@ -1,14 +1,15 @@
 <?php
+require_once(__DIR__ . '/../config.php');
+
 class VueMotDePasseOublie
 {
     private $cnxDB;
 
     public function __construct()
     {
-        // J'utilise tes identifiants AlwaysData présents dans VueLogin
-        $dsn  = "mysql:host=mysql-digbeu.alwaysdata.net;dbname=digbeu_iobc;charset=utf8mb4";
-        $user = "digbeu_jeremy";// nom utilisateur
-        $pass = "toto123&*"; // Pense à utiliser des variables d'environnement à l'avenir !
+        $dsn  = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
+        $user = DB_USER;
+        $pass = DB_PASS;
 
         try {
             $this->cnxDB = new PDO($dsn, $user, $pass);
@@ -72,7 +73,7 @@ class VueMotDePasseOublie
 
             // 5. Envoyer l'email
             // Adapte l'URL avec ton vrai nom de domaine AlwaysData !
-            $lien = "http://digbeu.alwaysdata.net/index.php?reset&token=" . $token;
+            $lien = "https://81.194.40.29/~avf/index.php?reset&token=" . $token;
             $sujet = "Réinitialisation de votre mot de passe - IOBC";
             $message = "Bonjour,\n\nCliquez sur ce lien pour réinitialiser votre mot de passe : \n" . $lien . "\n\nCe lien est valable 1 heure.";
             $headers = "From: noreply@iobc.com";

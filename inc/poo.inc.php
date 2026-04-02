@@ -13,7 +13,7 @@ function set_autoload()
 {
     function my_autoloader ($classname)
     {
-        $filename = './class/' . $classname . '.class.php'; // ← ajouter class/
+        $filename = __DIR__ . '/../class/' . $classname . '.class.php';
         if (file_exists($filename))
         {
             include_once($filename);
